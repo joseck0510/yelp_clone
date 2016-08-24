@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore api keys and other app secrets
+/config/secrets.yml
