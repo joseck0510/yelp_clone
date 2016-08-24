@@ -1,0 +1,4 @@
+.field_with_errors {
+  border-style: dotted;
+  border-color: red;
+}
