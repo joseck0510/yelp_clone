@@ -4,6 +4,7 @@ feature 'Reviewing' do
   before { Restaurant.create(name: 'KFC')}
 
   scenario 'Allows users to leave a review using a form' do
+    sign_up
     visit '/restaurants'
     click_link 'Review KFC'
     fill_in 'Thoughts', with: "Just the best"

@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'devise'
+  gem 'shoulda'
 end
 
 group :development do
