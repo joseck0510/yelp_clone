@@ -13,6 +13,6 @@
 /tmp
 
 # Ignore api keys and other app secrets
-/config/secrets.yml
+# ß/config/secrets.yml
 
 .env

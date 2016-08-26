@@ -14,6 +14,10 @@ feature 'reviewing' do
     expect(page).to have_content 'so so'
   end
 
+  scenario 'user can delete a review' do
+    
+  end
+
 
 
 end
