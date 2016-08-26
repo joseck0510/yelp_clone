@@ -83,13 +83,29 @@ feature "restaurants" do
 
   context 'deleting restaurants' do
 
-    before { Restaurant.create name: 'KFC', description: 'Deep fried goodness' }
-
-    scenario 'let a user delete a restaurant' do
+    scenario 'user can delete a restaurant if they created it' do
       sign_up
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: 'KFC'
+      click_button 'Create Restaurant'
       click_link 'Delete KFC'
-      expect(page).not_to have_content 'KFC'
-      expect(page).to have_content 'No restaurants yet'
+      expect(page).to have_content('Restaurant deleted sucessfully')
+    end
+
+    scenario 'user can only delete if they created the restaurant' do
+      sign_up
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: 'KFC'
+      click_button 'Create Restaurant'
+      click_link 'Sign out'
+      click_link('Sign up')
+      fill_in('Email', with: 'test2@example.com')
+      fill_in('Password', with: 'testtest')
+      fill_in('Password confirmation', with: 'testtest')
+      click_button('Sign up')
+      click_link 'Delete KFC'
+      expect(page).to have_content('You cannot delete this restaurant')
+
     end
   end
 end
